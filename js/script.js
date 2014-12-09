@@ -6,6 +6,7 @@ var band_2;
 var band_3;
 var multiplier;
 var tolerance;
+var temp_coef;
 var resistanceText;
 
 window.onload = function() {
@@ -15,7 +16,10 @@ window.onload = function() {
   band_3 = document.getElementById("band_3");
   multiplier = document.getElementById("multiplier");
   tolerance = document.getElementById("tolerance");
+  temp_coef = document.getElementById("coefficient");
   resistanceText = document.getElementById("resistance");
+
+  updatePage();
 }
 
 /*****
@@ -52,10 +56,17 @@ function updatePage() {
 
   if (numBands.value == "4") {
     hideBand3();
+    hideCoefficient();
     resistance = calcResistance(band_1.value, band_2.value, "-1", multiplier.value);
   }
-  else if ((numBands.value == "5") || (numBands.value == "6")){
+  else if (numBands.value == "5") {
     showBand3();
+    hideCoefficient();
+    resistance = calcResistance(band_1.value, band_2.value, band_3.value, multiplier.value);
+  }
+  else {
+    showBand3();
+    showCoefficient();
     resistance = calcResistance(band_1.value, band_2.value, band_3.value, multiplier.value);
   }
 
@@ -74,6 +85,19 @@ function showBand3() {
   band_3.style.display = "inline";
 }
 
+function hideCoefficient() {
+  temp_coef.style.display = "none";
+}
+
+function showCoefficient() {
+  temp_coef.style.display = "inline";
+}
 function updateResistance(resistance) {
-  resistanceText.value = resistance + " Ohms " + tolerance.value + "%";
+  var text = resistance + " Ohms " + tolerance.value + "%";
+
+  if (numBands.value == "6") {
+    text += " " + temp_coef.value + "ppm";
+  }
+
+  resistanceText.value = text;
 }
