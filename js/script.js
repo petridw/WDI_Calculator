@@ -1,3 +1,4 @@
+//vars for document elements
 var numBands;
 var numBands;
 var band_1;
@@ -6,8 +7,6 @@ var band_3;
 var multiplier;
 var tolerance;
 var resistanceText;
-var toleranceCell1;
-var toleranceCell2;
 
 window.onload = function() {
   numBands = document.getElementById("num_bands");
@@ -17,8 +16,6 @@ window.onload = function() {
   multiplier = document.getElementById("multiplier");
   tolerance = document.getElementById("tolerance");
   resistanceText = document.getElementById("resistance");
-  toleranceCell1 = document.getElementById("tolerance_cell1");
-  toleranceCell2 = document.getElementById("tolerance_cell2");
 }
 
 /*****
@@ -32,39 +29,51 @@ function calcResistance(digit1, digit2, digit3, multiplier) {
   var bandValue;
   var resistance;
 
-  if ((digit3 == -1)) {
+  if ((digit3 == "-1")) {
     // 4-band color code
     bandValue = digit1 + "" + digit2;
-    console.log ("4-band code = " + bandValue);
+    console.log ("band value = " + bandValue);
   }
   else {
     // 5 or 6 band color code
     bandValue = digit1 + "" + digit2 + "" + digit3;
-    console.log ("5-6 band code = " + bandValue);
+    console.log ("band value = " + bandValue);
   }
 
-  resistance = parseInt(bandValue) * multiplier;
+  resistance = parseInt(bandValue) * parseInt(multiplier);
+
   console.log("Calculated resistance: " + resistance);
 
   return resistance;
 }
 
 function updatePage() {
+  var resistance;
 
   if (numBands.value == "4") {
-    hideTolerance();
+    hideBand3();
+    resistance = calcResistance(band_1.value, band_2.value, "-1", multiplier.value);
   }
-  if ((numBands.value == "5") || (numBands.value == 6)){
-    showTolerance();
+  else if ((numBands.value == "5") || (numBands.value == "6")){
+    showBand3();
+    resistance = calcResistance(band_1.value, band_2.value, band_3.value, multiplier.value);
+  }
+
+  console.log ("tolerance: " + tolerance.value);
+
+  if (!isNaN(resistance)) {
+    updateResistance(resistance);
   }
 }
 
-function hideTolerance() {
-  toleranceCell1.style.display = "none";
-  toleranceCell2.style.display = "none";
+function hideBand3() {
+  band_3.style.display = "none";
 }
 
-function showTolerance() {
-  toleranceCell1.style.display = "inline";
-  toleranceCell2.style.display = "inline";
+function showBand3() {
+  band_3.style.display = "inline";
+}
+
+function updateResistance(resistance) {
+  resistanceText.value = resistance + " Ohms " + tolerance.value + "%";
 }

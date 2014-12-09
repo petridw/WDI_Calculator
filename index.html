@@ -8,27 +8,13 @@
   <title>Calculator</title>
 </head>
 <body>
-  <table>
 
-    <tr>
-      <td># of Bands</td>
-      <td>Band 1</td>
-      <td>Band 2</td>
-      <td>Band 3</td>
-      <td>Band 4</td>
-      <td id="tolerance_cell1">Band 5</td>
-    </tr>
-
-    <tr>
-      <td>
         <select name="num_bands" id="num_bands" onchange="updatePage()">
           <option value="4">4</option>
           <option value="5">5</option>
           <option value="6">6</option>
         </select>
-      </td>
 
-      <td>
         <select name="band_1" id="band_1" onchange="updatePage()">
           <option value="0">Black</option>
           <option value="1">Brown</option>
@@ -41,8 +27,7 @@
           <option value="8">Grey</option>
           <option value="9">White</option>
         </select>
-      </td>
-      <td>
+
         <select name="band_2" id="band_2" onchange="updatePage()">
           <option value="0">Black</option>
           <option value="1">Brown</option>
@@ -55,9 +40,7 @@
           <option value="8">Grey</option>
           <option value="9">White</option>
         </select>
-      </td>
 
-      <td>
         <select name="band_3" id="band_3" onchange="updatePage()">
           <option value="0">Black</option>
           <option value="1">Brown</option>
@@ -70,9 +53,7 @@
           <option value="8">Grey</option>
           <option value="9">White</option>
         </select>
-      </td>
 
-      <td>
         <select name="multiplier" id="multiplier" onchange="updatePage()">
           <option value=".01">Silver</option>
           <option value=".1">Gold</option>
@@ -84,9 +65,7 @@
           <option value="100000">Green</option>
           <option value="1000000">Blue</option>
         </select>
-      </td>
 
-      <td id="tolerance_cell2">
         <select name="tolerance" id="tolerance" onchange="updatePage()">
           <option value="10">Silver</option>
           <option value="5">Gold</option>
@@ -96,10 +75,6 @@
           <option value=".25">Blue</option>
           <option value=".1">Violet</option>
         </select>
-      </td>
-    </tr>
-
-  </table>
 
   Resistance:<input type="text" id="resistance" readonly>
 
