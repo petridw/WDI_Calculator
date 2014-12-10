@@ -2,88 +2,125 @@
 <html>
 <head>
   <script type="text/javascript" src="js/script.js"></script>
+
+  <!-- <link href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'> -->
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
-
-  <title>Calculator</title>
+  <title>RESIST0R</title>
 </head>
 <body>
 
-        <select name="num_bands" id="num_bands" onchange="updatePage()">
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-        </select>
+  <header>
+    <div class="banner">
+      <h1>resistance calculator</h1>
+    </div>
+  </header>
 
-        <select name="band_1" id="band_1" onchange="updatePage()">
-          <option value="0">Black</option>
-          <option value="1">Brown</option>
-          <option value="2">Red</option>
-          <option value="3">Orange</option>
-          <option value="4">Yellow</option>
-          <option value="5">Green</option>
-          <option value="6">Blue</option>
-          <option value="7">Violet</option>
-          <option value="8">Grey</option>
-          <option value="9">White</option>
-        </select>
+  <div class="inputs">
 
-        <select name="band_2" id="band_2" onchange="updatePage()">
-          <option value="0">Black</option>
-          <option value="1">Brown</option>
-          <option value="2">Red</option>
-          <option value="3">Orange</option>
-          <option value="4">Yellow</option>
-          <option value="5">Green</option>
-          <option value="6">Blue</option>
-          <option value="7">Violet</option>
-          <option value="8">Grey</option>
-          <option value="9">White</option>
-        </select>
+    # of bands:
+    <select name="num_bands" id="num_bands" onchange="updatePage()">
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    </select>
 
-        <select name="band_3" id="band_3" onchange="updatePage()">
-          <option value="0">Black</option>
-          <option value="1">Brown</option>
-          <option value="2">Red</option>
-          <option value="3">Orange</option>
-          <option value="4">Yellow</option>
-          <option value="5">Green</option>
-          <option value="6">Blue</option>
-          <option value="7">Violet</option>
-          <option value="8">Grey</option>
-          <option value="9">White</option>
-        </select>
+    <select name="band_1" id="band_1" onchange="updatePage()">
+      <option value="1">Brown</option>
+      <option value="2">Red</option>
+      <option value="3">Orange</option>
+      <option value="4">Yellow</option>
+      <option value="5">Green</option>
+      <option value="6">Blue</option>
+      <option value="7">Violet</option>
+      <option value="8">Grey</option>
+      <option value="9">White</option>
+    </select>
 
-        <select name="multiplier" id="multiplier" onchange="updatePage()">
-          <option value=".01">Silver</option>
-          <option value=".1">Gold</option>
-          <option value="1">Black</option>
-          <option value="10">Brown</option>
-          <option value="100">Red</option>
-          <option value="1000">Orange</option>
-          <option value="10000">Yellow</option>
-          <option value="100000">Green</option>
-          <option value="1000000">Blue</option>
-        </select>
+    <select name="band_2" id="band_2" onchange="updatePage()">
+      <option value="0">Black</option>
+      <option value="1">Brown</option>
+      <option value="2">Red</option>
+      <option value="3">Orange</option>
+      <option value="4">Yellow</option>
+      <option value="5">Green</option>
+      <option value="6">Blue</option>
+      <option value="7">Violet</option>
+      <option value="8">Grey</option>
+      <option value="9">White</option>
+    </select>
 
-        <select name="tolerance" id="tolerance" onchange="updatePage()">
-          <option value="10">Silver</option>
-          <option value="5">Gold</option>
-          <option value="1">Brown</option>
-          <option value="2">Red</option>
+    <select name="band_3" id="band_3" onchange="updatePage()">
+      <option value="0">Black</option>
+      <option value="1">Brown</option>
+      <option value="2">Red</option>
+      <option value="3">Orange</option>
+      <option value="4">Yellow</option>
+      <option value="5">Green</option>
+      <option value="6">Blue</option>
+      <option value="7">Violet</option>
+      <option value="8">Grey</option>
+      <option value="9">White</option>
+    </select>
+
+    <select name="multiplier" id="multiplier" onchange="updatePage()">
+      <option value=".01">Silver</option>
+      <option value=".1">Gold</option>
+      <option value="1">Black</option>
+      <option value="10">Brown</option>
+      <option value="100">Red</option>
+      <option value="1000">Orange</option>
+      <option value="10000">Yellow</option>
+      <option value="100000">Green</option>
+      <option value="1000000">Blue</option>
+      <option value="10000000">Violet</option>
+    </select>
+
+    <select name="tolerance" id="tolerance" onchange="updatePage()">
+      <option value="10">Silver</option>
+      <option value="5">Gold</option>
+      <option value="1">Brown</option>
+      <option value="2">Red</option>
 ¨         <option value=".5">Green</option>
-          <option value=".25">Blue</option>
-          <option value=".1">Violet</option>
-        </select>
+      <option value=".25">Blue</option>
+      <option value=".1">Violet</option>
+    </select>
 
-        <select name="coefficient" id="coefficient" onchange="updatePage()">
-          <option value="100">Brown</option>
-          <option value="50">Red</option>
+    <select name="coefficient" id="coefficient" onchange="updatePage()">
+      <option value="100">Brown</option>
+      <option value="50">Red</option>
 ¨         <option value="25">Yellow</option>
-          <option value="15">Orange</option>
-        </select>
+      <option value="15">Orange</option>
+    </select>
 
-  Resistance:<input type="text" id="resistance" readonly>
+    <div class="resistance-container">
+      <span class="resistance">Resistance:</span>
+      <input type="text" id="resistance" readonly>
+    </div>
+  </div>
+
+  <div class="resistor-container">
+    <div class="resistor-pin">
+    </div>
+    <div class="resistor-body" id="resistor_body">
+      <div class="band-img" id="band_1_img">
+      </div>
+      <div class="band-img" id="band_2_img">
+      </div>
+      <div class="band-img" id="band_3_img">
+      </div>
+      <div class="band-img" id="multiplier_img">
+      </div>
+      <div class="band-img" id="tolerance_img">
+      </div>
+      <div class="band-img" id="coefficient_img">
+      </div>
+    </div>
+    <div class="resistor-pin">
+    </div>
+  </div>
+
 
 </body>
 </html>
